@@ -32,10 +32,10 @@ Chef::Log.info  "Elastic Ip is: http://#{new_resource.elastic_ip}:#{node['elasti
 # Delete projects index if reindex is set to true
 http_request 'delete projects index' do
   action :delete
-  url "http://#{new_resource.elastic_ip}:#{node['elastic']['port']}/projects""
+  url "http://#{new_resource.elastic_ip}:#{node['elastic']['port']}/projects"
   retries numRetries
   retry_delay retryDelay
-  only_if { node['elastic']['projects']['reindex'] == "true" }
+  only_if { #{node['elastic']['projects']['reindex']} }
 end
 
 
@@ -252,5 +252,3 @@ http_request 'elastic-install-projects-index' do
    retries numRetries
    retry_delay retryDelay
  end
-
-end
