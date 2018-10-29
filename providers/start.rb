@@ -252,3 +252,5 @@ http_request 'elastic-install-projects-index' do
    retries numRetries
    retry_delay retryDelay
  end
+
+end
